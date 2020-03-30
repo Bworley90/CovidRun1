@@ -10,4 +10,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject playerTwo;
     public GameObject playerThree;
     public GameObject playerFour;
+
+    private void Update()
+    {
+        NumberOfPlayers = GameManager.NumberOfPlayers;
+    }
 }
