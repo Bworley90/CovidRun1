@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public static int NumberOfPlayers;
     public int playerNumbers; // View number of players for testing
+    public bool characterSelectOpen = false;
 
 
     // Singleton
