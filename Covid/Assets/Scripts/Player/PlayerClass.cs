@@ -9,49 +9,21 @@ public class PlayerClass : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public int playerNumber;
-
+    private Vector3 movementDirection;
 
 
     public void PlayerMovement()
     {
-        if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0) // Up
+        movementDirection = Vector2.zero;
+        movementDirection.x = Input.GetAxisRaw("Horizontal");
+        movementDirection.y = Input.GetAxisRaw("Vertical");
+        if(movementDirection != Vector3.zero)
         {
-            transform.position = transform.position + Vector3.up * speed * Time.deltaTime;
-        }
-        else if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0) //Down
-        {
-            transform.position = transform.position + Vector3.down * speed * Time.deltaTime;
-        }
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0) //Left
-        {
-            transform.position = transform.position + Vector3.left * speed * Time.deltaTime;
-        }
-        else if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
-        {
-            transform.position = transform.position + Vector3.right * speed * Time.deltaTime;
+            movementDirection.Normalize();
+            GetComponent<Rigidbody2D>().MovePosition(transform.position + movementDirection * speed * Time.deltaTime);
         }
     }
 
-    public void PlayerMovementWithRigidBody()
-    {
-
-        
-        if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0) // Up
-        {
-            GetComponent<Rigidbody2D>().AddForce(transform.position * Vector2.up * speed);
-        }
-        else if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0) //Down
-        {
-            GetComponent<Rigidbody2D>().AddForce(transform.position * Vector2.down * speed);
-        }
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0) //Left
-        {
-            GetComponent<Rigidbody2D>().AddForce(transform.position * Vector2.left * speed);
-        }
-        else if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0) // Right
-        {
-            GetComponent<Rigidbody2D>().AddForce(transform.position * Vector2.right * speed);
-        }
-    }
+    
 }
 

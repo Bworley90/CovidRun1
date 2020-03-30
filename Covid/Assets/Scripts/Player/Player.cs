@@ -7,7 +7,7 @@ public class Player : PlayerClass
     
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         PlayerMovement();
     }
