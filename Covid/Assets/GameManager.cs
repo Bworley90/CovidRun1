@@ -5,13 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public static int NumberOfPlayers;
-    public int playerNumbers; // View number of players for testing
-    public bool characterSelectOpen = false;
+
 
 
     // Singleton
-    private void Awake() 
+    private void Awake()
     {
         if (instance != null)
         {
@@ -23,17 +21,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
-
-    private void Update()
-    {
-        UpdateVariables();
-    }
-
-    private void UpdateVariables()
-    {
-        playerNumbers = GameManager.NumberOfPlayers; // View number of players for testing
-    }
-
 
 
 

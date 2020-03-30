@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int NumberOfPlayers;
-
-    public GameObject playerOne;
-    public GameObject playerTwo;
-    public GameObject playerThree;
-    public GameObject playerFour;
-
-    private void Update()
-    {
-        NumberOfPlayers = GameManager.NumberOfPlayers;
-    }
+    
 }

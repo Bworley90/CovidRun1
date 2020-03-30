@@ -23,9 +23,8 @@ public class MenuButtons : MonoBehaviour
         anim.SetTrigger("playersSelected");
     }
 
-    public void LoadTheNextScene(int numberOfPlayers)
+    public void LoadTheNextScene()
     {
-        GameManager.NumberOfPlayers = numberOfPlayers;
         SceneManager.LoadScene(1);
     }
 }
