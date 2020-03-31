@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
     private Animator anim;
+    public GameObject playerOne;
+    public GameObject playerTwo;
+    public GameObject playerThree;
+
 
 
     private void Start()
@@ -27,4 +29,24 @@ public class MenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void PlayerSelected(int playerNumber)
+    {
+        if (playerNumber == 1)
+        {
+            GameManager.instance.selectedPlayer = playerOne;
+            SceneManager.LoadScene(1);
+        }
+        else if (playerNumber == 2)
+        {
+            GameManager.instance.selectedPlayer = playerTwo;
+            SceneManager.LoadScene(1);
+        }
+        else if (playerNumber == 3)
+        {
+            GameManager.instance.selectedPlayer = playerThree;
+            SceneManager.LoadScene(1);
+        }
+    }
+
 }

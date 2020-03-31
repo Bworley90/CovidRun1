@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     [Range(0, 100)]
     public float cameraDistance;
+
+    private void Start()
+    {
+        player = GameManager.instance.selectedPlayer;
+    }
 
 
     private void Update()
